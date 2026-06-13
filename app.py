@@ -50,7 +50,7 @@ furniture_products = [
     },
     {
         'id': 6,
-        'name': '编号6 - 吉祥如意沙发',
+        'name': '编号6 - 红椿木三人座梅花椅',
         'price': 52800,
         'category': '沙发',
         'wood': '红椿木',
@@ -59,21 +59,21 @@ furniture_products = [
     },
     {
         'id': 7,
-        'name': '编号7 - 雕花条案',
+        'name': '编号7 - 红椿供桌',
         'price': 42800,
-        'category': '条案',
-        'wood': '楸木',
+        'category': '供桌',
+        'wood': '红椿木',
         'image': '/static/images/微信图片_20260614033131_340_2.jpg',
-        'description': '花开富贵，精雕细琢，楸木材质，典雅大气'
+        'description': '花开富贵，精雕细琢，红椿木材质，典雅大气'
     },
     {
         'id': 8,
-        'name': '编号8 - 雕花架几',
+        'name': '编号8 - 红椿木花架',
         'price': 6800,
         'category': '花架',
-        'wood': '楠木',
+        'wood': '红椿木',
         'image': '/static/images/微信图片_20260614033137_342_2.jpg',
-        'description': '莲花雕刻，精致典雅，楠木材质，高贵大方'
+        'description': '莲花雕刻，精致典雅，红椿木材质，高贵大方'
     }
 ]
 
