@@ -9,7 +9,7 @@ app = Flask(__name__)
 EMAIL_HOST = 'smtp.qq.com'
 EMAIL_PORT = 465
 EMAIL_USER = 'yucheng_furniture@qq.com'
-EMAIL_PASSWORD = 'rqtokytadasndghf'  # 需要用户提供QQ邮箱授权码
+EMAIL_PASSWORD = ''  # 请在QQ邮箱设置中获取授权码，不要提交到GitHub
 
 def send_email(name, email, phone, message):
     try:
