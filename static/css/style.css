@@ -968,20 +968,11 @@ body {
     text-decoration: none !important;
 }
 
-.contact-tip {
-    background: rgba(212, 165, 116, 0.15);
-    border: 1px solid rgba(212, 165, 116, 0.4);
-    border-radius: 10px;
-    padding: 18px;
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-.contact-tip p {
-    margin: 0;
-    color: #8B7355;
-    font-size: 15px;
-    line-height: 1.6;
+.contact-hint {
+    font-size: 12px !important;
+    color: #8B7355 !important;
+    margin-top: 5px !important;
+    font-style: italic;
 }
 
     .hero-title {
