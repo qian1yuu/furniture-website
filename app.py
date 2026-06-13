@@ -17,18 +17,18 @@ furniture_products = [
         'name': '编号2 - 雕花供桌',
         'price': 35800,
         'category': '供桌',
-        'wood': '楸木',
+        'wood': '红椿木',
         'image': '/static/images/微信图片_20260614033123_334_2.jpg',
-        'description': '繁复雕花，庄重典雅，楸木材质，寓意吉祥'
+        'description': '繁复雕花，庄重典雅，红椿木材质，寓意吉祥'
     },
     {
         'id': 3,
-        'name': '编号3 - 古典沙发组合',
+        'name': '编号3 - 古典龙椅茶几组合',
         'price': 68000,
-        'category': '沙发',
-        'wood': '楠木',
+        'category': '长椅',
+        'wood': '红椿木',
         'image': '/static/images/微信图片_20260614033124_335_2.jpg',
-        'description': '龙凤呈祥，大气磅礴，楠木材质，尊贵典雅'
+        'description': '龙凤呈祥，大气磅礴，红椿木材质，尊贵典雅'
     },
     {
         'id': 4,
@@ -43,7 +43,7 @@ furniture_products = [
         'id': 5,
         'name': '编号5 - 龙纹雕花长椅',
         'price': 56800,
-        'category': '沙发',
+        'category': '龙椅',
         'wood': '红椿木',
         'image': '/static/images/微信图片_20260614033127_338_2.jpg',
         'description': '松鹤延年，吉祥如意，红椿木材质，寓意美好'
@@ -52,7 +52,7 @@ furniture_products = [
         'id': 6,
         'name': '编号6 - 红椿木三人座梅花椅',
         'price': 52800,
-        'category': '沙发',
+        'category': '龙椅',
         'wood': '红椿木',
         'image': '/static/images/微信图片_20260614033128_339_2.jpg',
         'description': '吉祥如意，镶嵌云石，红椿木材质，雕刻精美'
@@ -77,7 +77,7 @@ furniture_products = [
     }
 ]
 
-categories = ['全部', '茶几', '供桌', '沙发', '长椅', '条案', '花架']
+categories = ['全部', '茶几', '供桌',  '龙椅', '条案', '花架']
 wood_types = ['全部', '红椿木', '楸木', '楠木']
 
 @app.route('/')
