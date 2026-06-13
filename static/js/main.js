@@ -59,42 +59,26 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const btn = this.querySelector('.btn-submit');
-            const originalText = btn.textContent;
-            btn.textContent = '发送中...';
-            btn.disabled = true;
-            
+            // 获取表单数据
             const formData = new FormData(this);
+            const name = formData.get('name') || '未填写';
+            const email = formData.get('email') || '未填写';
+            const phone = formData.get('phone') || '未填写';
+            const message = formData.get('message') || '未填写';
             
-            fetch('/submit_message', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('留言已提交成功！我们会尽快与您联系。\n\n如需紧急联系，请发送邮件至：yucheng_furniture@qq.com');
-                    this.reset();
-                } else {
-                    alert(data.message);
-                }
-            })
-            .catch(error => {
-                // 如果网络错误，提供mailto备选方案
-                const name = formData.get('name');
-                const email = formData.get('email');
-                const phone = formData.get('phone');
-                const message = formData.get('message');
-                
-                const mailtoLink = `mailto:yucheng_furniture@qq.com?subject=榆城家具留言&body=姓名：${encodeURIComponent(name)}%0A邮箱：${encodeURIComponent(email)}%0A电话：${encodeURIComponent(phone)}%0A留言：${encodeURIComponent(message)}`;
-                
-                alert('网络错误，请点击确定使用邮箱联系我们。');
-                window.location.href = mailtoLink;
-            })
-            .finally(() => {
-                btn.textContent = originalText;
-                btn.disabled = false;
-            });
+            // 构建 mailto 链接
+            const subject = '榆城家具 - 客户留言';
+            const body = `姓名：${name}\n邮箱：${email}\n电话：${phone}\n留言内容：\n${message}`;
+            
+            // 跳转到邮箱写信页面
+            const mailtoLink = `mailto:yucheng_furniture@qq.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+            
+            // 显示成功提示
+            alert('已打开邮箱发送邮件，请将内容发送给我们，感谢您的留言！');
+            
+            // 清空表单
+            this.reset();
         });
     }
 
