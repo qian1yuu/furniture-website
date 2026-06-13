@@ -947,6 +947,42 @@ body {
     .products-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.email-link {
+    color: #D4A574 !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    transition: all 0.3s;
+    padding: 5px 15px;
+    border: 2px solid #D4A574;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 8px;
+    background: rgba(212, 165, 116, 0.1);
+}
+
+.email-link:hover {
+    background: #D4A574;
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.contact-tip {
+    background: rgba(212, 165, 116, 0.15);
+    border: 1px solid rgba(212, 165, 116, 0.4);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.contact-tip p {
+    margin: 0;
+    color: #8B7355;
+    font-size: 15px;
+    line-height: 1.6;
+}
 
     .hero-title {
         font-size: 28px;
