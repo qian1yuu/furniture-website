@@ -1,6 +1,47 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
 
 app = Flask(__name__)
+
+# 邮箱配置
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 465
+EMAIL_USER = '3144175300@qq.com'
+EMAIL_PASSWORD = 'rqtokytadasndghf'  # 需要用户提供QQ邮箱授权码
+
+def send_email(name, email, phone, message):
+    try:
+        # 邮件内容
+        mail_content = f"""
+尊敬的榆城家具：
+
+您收到了一条新的留言：
+
+姓名：{name}
+邮箱：{email}
+电话：{phone}
+留言内容：
+{message}
+
+来自榆城家具官网
+        """
+        
+        msg = MIMEText(mail_content, 'plain', 'utf-8')
+        msg['Subject'] = Header('榆城家具 - 新留言', 'utf-8')
+        msg['From'] = EMAIL_USER
+        msg['To'] = EMAIL_USER
+        
+        # 发送邮件
+        server = smtplib.SMTP_SSL(EMAIL_HOST, EMAIL_PORT)
+        server.login(EMAIL_USER, EMAIL_PASSWORD)
+        server.sendmail(EMAIL_USER, [EMAIL_USER], msg.as_string())
+        server.quit()
+        return True
+    except Exception as e:
+        print(f"发送邮件失败: {e}")
+        return False
 
 furniture_products = [
     {
@@ -90,6 +131,25 @@ def product_detail(product_id):
     if product:
         return render_template('product.html', product=product)
     return "产品未找到", 404
+
+@app.route('/submit_message', methods=['POST'])
+def submit_message():
+    try:
+        name = request.form.get('name')
+        email = request.form.get('email')
+        phone = request.form.get('phone', '')
+        message = request.form.get('message')
+        
+        if not name or not email or not message:
+            return jsonify({'success': False, 'message': '请填写必填字段'})
+        
+        # 尝试发送邮件（如果配置了授权码）
+        if EMAIL_PASSWORD != '授权码需要用户提供':
+            send_email(name, email, phone, message)
+        
+        return jsonify({'success': True, 'message': '留言提交成功！我们会尽快与您联系。'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': f'提交失败: {str(e)}'})
 
 if __name__ == '__main__':
     import os

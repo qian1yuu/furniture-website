@@ -54,12 +54,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const contactForm = document.querySelector('.contact-form');
+    const contactForm = document.querySelector('#contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('感谢您的留言！我们会尽快与您联系。');
-            this.reset();
+            
+            const btn = this.querySelector('.btn-submit');
+            const originalText = btn.textContent;
+            btn.textContent = '发送中...';
+            btn.disabled = true;
+            
+            const formData = new FormData(this);
+            
+            fetch('/submit_message', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                if (data.success) {
+                    this.reset();
+                }
+            })
+            .catch(error => {
+                alert('提交失败，请稍后重试');
+            })
+            .finally(() => {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            });
         });
     }
 
