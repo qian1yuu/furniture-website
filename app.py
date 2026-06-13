@@ -32,7 +32,7 @@ furniture_products = [
     },
     {
         'id': 4,
-        'name': '编号4 - 龙纹雕花长椅',
+        'name': '编号4 - 吉祥如意沙发',
         'price': 28800,
         'category': '长椅',
         'wood': '红椿木',
@@ -41,12 +41,12 @@ furniture_products = [
     },
     {
         'id': 5,
-        'name': '编号5 - 吉祥如意沙发',
+        'name': '编号5 - 龙纹雕花长椅',
         'price': 56800,
         'category': '沙发',
-        'wood': '楸木',
+        'wood': '红椿木',
         'image': '/static/images/微信图片_20260614033127_338_2.jpg',
-        'description': '松鹤延年，吉祥如意，楸木材质，寓意美好'
+        'description': '松鹤延年，吉祥如意，红椿木材质，寓意美好'
     },
     {
         'id': 6,
