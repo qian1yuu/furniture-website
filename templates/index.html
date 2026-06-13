@@ -188,7 +188,7 @@
                         <span class="contact-icon">✉️</span>
                         <div>
                             <strong>邮箱</strong>
-                            <p><a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=yucheng_furniture@qq.com" target="_blank" class="email-link">yucheng_furniture@qq.com</a></p>
+                            <p><a href="https://w.mail.qq.com/cgi-bin/qm_autologin?func=1&mailtype=1&username=yucheng_furniture@qq.com" target="_blank" class="email-link">yucheng_furniture@qq.com</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -227,16 +227,19 @@
                     var subject = encodeURIComponent('榆城家具 - 客户留言');
                     var body = encodeURIComponent('姓名：' + name + '\n邮箱：' + email + '\n电话：' + phone + '\n留言内容：\n' + message);
                     
-                    // 尝试多种方式打开邮箱
-                    var mailtoUrl = 'mailto:yucheng_furniture@qq.com?subject=' + subject + '&body=' + body;
+                    // 打开大窗口的QQ邮箱写信页面
+                    var mailtoUrl = 'https://w.mail.qq.com/cgi-bin/qm_autologin?func=1&mailtype=1&username=yucheng_furniture@qq.com';
                     
-                    // 方式1：直接跳转
-                    window.location.href = mailtoUrl;
+                    // 尝试打开大窗口
+                    var newWindow = window.open(mailtoUrl, '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes');
                     
-                    // 方式2：延迟后打开新窗口
+                    // 同时设置 mailto 处理器
                     setTimeout(function() {
-                        window.open('https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=yucheng_furniture@qq.com', '_blank');
-                    }, 500);
+                        window.location.href = 'mailto:yucheng_furniture@qq.com?subject=' + subject + '&body=' + body;
+                    }, 1000);
+                    
+                    // 提示用户
+                    alert('已打开QQ邮箱登录页面，登录后即可发送留言！\n\n如果邮箱没有自动打开，请点击页面上的邮箱地址。');
                 }
                 </script>
             </div>
