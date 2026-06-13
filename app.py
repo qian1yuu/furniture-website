@@ -47,10 +47,37 @@ furniture_products = [
         'wood': '楸木',
         'image': '/static/images/微信图片_20260614033127_338_2.jpg',
         'description': '松鹤延年，吉祥如意，楸木材质，寓意美好'
+    },
+    {
+        'id': 6,
+        'name': '编号6 - 吉祥如意沙发',
+        'price': 52800,
+        'category': '沙发',
+        'wood': '红椿木',
+        'image': '/static/images/微信图片_20260614033128_339_2.jpg',
+        'description': '吉祥如意，镶嵌云石，红椿木材质，雕刻精美'
+    },
+    {
+        'id': 7,
+        'name': '编号7 - 雕花条案',
+        'price': 42800,
+        'category': '条案',
+        'wood': '楸木',
+        'image': '/static/images/微信图片_20260614033131_340_2.jpg',
+        'description': '花开富贵，精雕细琢，楸木材质，典雅大气'
+    },
+    {
+        'id': 8,
+        'name': '编号8 - 雕花架几',
+        'price': 6800,
+        'category': '花架',
+        'wood': '楠木',
+        'image': '/static/images/微信图片_20260614033137_342_2.jpg',
+        'description': '莲花雕刻，精致典雅，楠木材质，高贵大方'
     }
 ]
 
-categories = ['全部', '茶几', '供桌', '沙发', '长椅']
+categories = ['全部', '茶几', '供桌', '沙发', '长椅', '条案', '花架']
 wood_types = ['全部', '红椿木', '楸木', '楠木']
 
 @app.route('/')
