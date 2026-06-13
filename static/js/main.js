@@ -1,9 +1,3 @@
-function openEmail() {
-    var subject = encodeURIComponent('榆城家具 - 客户咨询');
-    var body = encodeURIComponent('您好，我对榆城家具的产品感兴趣，请问...');
-    window.location.href = 'mailto:yucheng_furniture@qq.com?subject=' + subject + '&body=' + body;
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     const categoryTabs = document.querySelectorAll('.category-tab');
     const woodTabs = document.querySelectorAll('.wood-tab');
