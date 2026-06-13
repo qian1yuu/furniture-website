@@ -199,49 +199,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact-tip">
-                    <p>📧 点击上方邮箱地址联系我们，或填写以下表单后点击发送按钮打开邮箱</p>
-                </div>
-                <form class="contact-form" id="contactForm" onsubmit="openMailClient(this); return false;">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="您的姓名" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="电子邮箱" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" name="phone" placeholder="联系电话">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="留言内容" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-submit">发送留言</button>
-                </form>
-                <script>
-                function openMailClient(form) {
-                    var name = form.name.value || '未填写';
-                    var email = form.email.value || '未填写';
-                    var phone = form.phone.value || '未填写';
-                    var message = form.message.value || '未填写';
-                    
-                    var subject = encodeURIComponent('榆城家具 - 客户留言');
-                    var body = encodeURIComponent('姓名：' + name + '\n邮箱：' + email + '\n电话：' + phone + '\n留言内容：\n' + message);
-                    
-                    // 打开大窗口的QQ邮箱写信页面
-                    var mailtoUrl = 'https://w.mail.qq.com/cgi-bin/qm_autologin?func=1&mailtype=1&username=yucheng_furniture@qq.com';
-                    
-                    // 尝试打开大窗口
-                    var newWindow = window.open(mailtoUrl, '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes');
-                    
-                    // 同时设置 mailto 处理器
-                    setTimeout(function() {
-                        window.location.href = 'mailto:yucheng_furniture@qq.com?subject=' + subject + '&body=' + body;
-                    }, 1000);
-                    
-                    // 提示用户
-                    alert('已打开QQ邮箱登录页面，登录后即可发送留言！\n\n如果邮箱没有自动打开，请点击页面上的邮箱地址。');
-                }
-                </script>
             </div>
         </div>
     </section>
