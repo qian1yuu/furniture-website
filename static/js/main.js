@@ -1,16 +1,7 @@
-// 智能邮箱跳转：手机用 mailto，电脑用 QQ邮箱网页版
 function openEmail() {
-    var isMobile = /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
-    var subject = '榆城家具 - 客户咨询';
-    var body = '您好，我对榆城家具的产品感兴趣，请问...';
-    
-    if (isMobile) {
-        // 手机：用 mailto 链接
-        window.location.href = 'mailto:yucheng_furniture@qq.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    } else {
-        // 电脑：直接打开 QQ邮箱写信页面
-        window.open('https://mail.qq.com/cgi-bin/frame_html?sid=&r=write', '_blank', 'width=1000,height=700');
-    }
+    var subject = encodeURIComponent('榆城家具 - 客户咨询');
+    var body = encodeURIComponent('您好，我对榆城家具的产品感兴趣，请问...');
+    window.location.href = 'mailto:yucheng_furniture@qq.com?subject=' + subject + '&body=' + body;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
