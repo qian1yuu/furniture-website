@@ -36,7 +36,7 @@ furniture_products = [
         'price': 28800,
         'category': '长椅',
         'wood': '红椿木',
-        'image': '/static/images/微信图片_20260614033125_336_2.jpg',
+        'image': '/static/images/微信图片_20260614033125_336_6.jpeg',
         'description': '双龙戏珠，镶嵌云石，红椿木材质，工艺精湛'
     },
     {
