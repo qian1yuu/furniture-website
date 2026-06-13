@@ -54,34 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const contactForm = document.querySelector('#contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // 获取表单数据
-            const formData = new FormData(this);
-            const name = formData.get('name') || '未填写';
-            const email = formData.get('email') || '未填写';
-            const phone = formData.get('phone') || '未填写';
-            const message = formData.get('message') || '未填写';
-            
-            // 构建 mailto 链接
-            const subject = '榆城家具 - 客户留言';
-            const body = `姓名：${name}\n邮箱：${email}\n电话：${phone}\n留言内容：\n${message}`;
-            
-            // 跳转到邮箱写信页面
-            const mailtoLink = `mailto:yucheng_furniture@qq.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
-            
-            // 显示成功提示
-            alert('已打开邮箱发送邮件，请将内容发送给我们，感谢您的留言！');
-            
-            // 清空表单
-            this.reset();
-        });
-    }
-
     window.addEventListener('scroll', function() {
         const header = document.querySelector('.header');
         if (window.scrollY > 100) {
