@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ product.name }} - 榆城家具</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -13,18 +13,14 @@
             <div class="header-content">
                 <div class="logo">
                     <a href="/" class="logo-text">榆城家具</a>
-                    <span class="logo-slogan">让家更美好</span>
+                    <span class="logo-slogan">传承经典 · 匠心之作</span>
                 </div>
                 <nav class="nav">
                     <a href="/" class="nav-link">首页</a>
-                    <a href="/#products" class="nav-link">产品</a>
+                    <a href="/#products" class="nav-link">产品展示</a>
                     <a href="/#about" class="nav-link">关于我们</a>
                     <a href="/#contact" class="nav-link">联系方式</a>
                 </nav>
-                <div class="header-actions">
-                    <button class="btn-search">🔍</button>
-                    <button class="btn-cart">🛒</button>
-                </div>
             </div>
         </div>
     </header>
@@ -33,7 +29,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="/">首页</a> &gt;
-                <a href="/#products">产品</a> &gt;
+                <a href="/#products">产品展示</a> &gt;
                 <span>{{ product.name }}</span>
             </div>
 
@@ -41,52 +37,51 @@
                 <div class="product-gallery">
                     <div class="main-image">
                         <img src="{{ product.image }}" alt="{{ product.name }}">
+                        <div class="watermark">榆城家具</div>
                     </div>
                 </div>
 
                 <div class="product-detail-info">
-                    <span class="product-detail-category">{{ product.category }}</span>
+                    <div class="product-tags">
+                        <span class="product-detail-category">{{ product.category }}</span>
+                        <span class="product-detail-wood">{{ product.wood }}</span>
+                    </div>
                     <h1 class="product-detail-name">{{ product.name }}</h1>
                     <p class="product-detail-description">{{ product.description }}</p>
 
                     <div class="product-detail-price">
-                        <span class="price-label">价格</span>
+                        <span class="price-label">参考价格</span>
                         <span class="price-value">¥{{ "{:,}".format(product.price) }}</span>
                     </div>
 
                     <div class="product-detail-specs">
                         <div class="spec-item">
-                            <span class="spec-label">材质</span>
-                            <span class="spec-value">优质{{ product.category }}材料</span>
+                            <span class="spec-label">木材材质</span>
+                            <span class="spec-value">{{ product.wood }}</span>
                         </div>
                         <div class="spec-item">
-                            <span class="spec-label">尺寸</span>
-                            <span class="spec-value">标准尺寸，可定制</span>
+                            <span class="spec-label">工艺类型</span>
+                            <span class="spec-value">传统木雕工艺</span>
                         </div>
                         <div class="spec-item">
-                            <span class="spec-label">颜色</span>
-                            <span class="spec-value">多色可选</span>
+                            <span class="spec-label">尺寸规格</span>
+                            <span class="spec-value">可定制尺寸</span>
                         </div>
                         <div class="spec-item">
-                            <span class="spec-label">质保</span>
-                            <span class="spec-value">5年品质保证</span>
+                            <span class="spec-label">品质保证</span>
+                            <span class="spec-value">终身保养服务</span>
                         </div>
                     </div>
 
                     <div class="product-detail-actions">
-                        <div class="quantity-selector">
-                            <button class="qty-btn minus">-</button>
-                            <input type="number" value="1" min="1" class="qty-input">
-                            <button class="qty-btn plus">+</button>
-                        </div>
-                        <button class="btn btn-primary btn-add-cart-detail">加入购物车</button>
-                        <button class="btn btn-secondary btn-buy-now">立即购买</button>
+                        <a href="#contact" class="btn btn-primary">联系咨询</a>
+                        <a href="/#products" class="btn btn-secondary">返回列表</a>
                     </div>
 
                     <div class="product-detail-services">
-                        <div class="service-item">🚚 免费配送（满1999元）</div>
-                        <div class="service-item">🔄 30天无理由退换</div>
-                        <div class="service-item">🛡️ 5年质保服务</div>
+                        <div class="service-item">🎨 传统手工雕刻</div>
+                        <div class="service-item">🪵 精选优质木材</div>
+                        <div class="service-item">✂️ 支持定制服务</div>
                     </div>
                 </div>
             </div>
@@ -99,40 +94,39 @@
                 <div class="footer-brand">
                     <div class="logo">
                         <span class="logo-text">榆城家具</span>
-                        <span class="logo-slogan">让家更美好</span>
+                        <span class="logo-slogan">传承经典 · 匠心之作</span>
                     </div>
-                    <p class="footer-description">用心设计，为您打造温馨舒适的家</p>
+                    <p class="footer-description">百年传承 · 品质保证</p>
                 </div>
                 <div class="footer-links">
                     <h4>快速链接</h4>
                     <ul>
                         <li><a href="/">首页</a></li>
-                        <li><a href="/#products">产品中心</a></li>
+                        <li><a href="/#products">产品展示</a></li>
                         <li><a href="/#about">关于我们</a></li>
                         <li><a href="/#contact">联系我们</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>产品分类</h4>
+                    <h4>木材种类</h4>
                     <ul>
-                        <li><a href="#">客厅家具</a></li>
-                        <li><a href="#">卧室家具</a></li>
-                        <li><a href="#">餐厅家具</a></li>
-                        <li><a href="#">书房家具</a></li>
+                        <li><a href="#">红椿木</a></li>
+                        <li><a href="#">楸木</a></li>
+                        <li><a href="#">楠木</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>服务支持</h4>
                     <ul>
+                        <li><a href="#">定制服务</a></li>
                         <li><a href="#">配送说明</a></li>
-                        <li><a href="#">售后服务</a></li>
-                        <li><a href="#">退换政策</a></li>
+                        <li><a href="#">售后保养</a></li>
                         <li><a href="#">常见问题</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 榆城家具家具商城. All rights reserved.</p>
+                <p>&copy; 2026 榆城家具. 传承经典，匠心独具.</p>
             </div>
         </div>
     </footer>

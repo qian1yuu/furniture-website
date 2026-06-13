@@ -5,75 +5,57 @@ app = Flask(__name__)
 furniture_products = [
     {
         'id': 1,
-        'name': '现代真皮沙发',
-        'price': 12800,
-        'category': '沙发',
-        'image': 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400',
-        'description': '简约现代设计，优质真皮材质，舒适坐感'
+        'name': '编号1 - 古典雕花茶几',
+        'price': 18800,
+        'category': '茶几',
+        'wood': '红椿木',
+        'image': 'https://neeko-copilot.bytedance.net/api/text_to_image?prompt=Chinese%20traditional%20carved%20wooden%20coffee%20table%20with%20intricate%20floral%20patterns%20red%20camphor%20wood%20classical%20furniture%20workshop%20background&image_size=landscape_4_3',
+        'description': '精雕细琢，传统工艺，红椿木材质，花纹精美'
     },
     {
         'id': 2,
-        'name': '实木餐桌',
-        'price': 6800,
-        'category': '餐桌',
-        'image': 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=400',
-        'description': '北美胡桃木，环保涂装，适合6人用餐'
+        'name': '编号2 - 雕花供桌',
+        'price': 35800,
+        'category': '供桌',
+        'wood': '楸木',
+        'image': 'https://neeko-copilot.bytedance.net/api/text_to_image?prompt=Chinese%20traditional%20carved%20wooden%20altar%20table%20with%20elaborate%20carvings%20ash%20wood%20classical%20Chinese%20furniture&image_size=landscape_4_3',
+        'description': '繁复雕花，庄重典雅，楸木材质，寓意吉祥'
     },
     {
         'id': 3,
-        'name': '人体工学办公椅',
-        'price': 3200,
-        'category': '椅子',
-        'image': 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400',
-        'description': '可调节腰靠，透气网布，长时间办公首选'
+        'name': '编号3 - 古典沙发组合',
+        'price': 68000,
+        'category': '沙发',
+        'wood': '楠木',
+        'image': 'https://neeko-copilot.bytedance.net/api/text_to_image?prompt=Chinese%20traditional%20carved%20wooden%20sofa%20set%20with%20intricate%20dragon%20and%20phoenix%20carvings%20nanmu%20wood%20classical%20furniture&image_size=landscape_4_3',
+        'description': '龙凤呈祥，大气磅礴，楠木材质，尊贵典雅'
     },
     {
         'id': 4,
-        'name': '北欧风格床',
-        'price': 15800,
-        'category': '床',
-        'image': 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400',
-        'description': '白蜡木框架，软包床头，高箱储物设计'
+        'name': '编号4 - 龙纹雕花长椅',
+        'price': 28800,
+        'category': '长椅',
+        'wood': '红椿木',
+        'image': 'https://neeko-copilot.bytedance.net/api/text_to_image?prompt=Chinese%20traditional%20carved%20wooden%20bench%20with%20dragon%20sculptures%20and%20marble%20inserts%20red%20camphor%20wood%20classical%20style&image_size=landscape_4_3',
+        'description': '双龙戏珠，镶嵌云石，红椿木材质，工艺精湛'
     },
     {
         'id': 5,
-        'name': '智能书柜',
-        'price': 4500,
-        'category': '柜子',
-        'image': 'https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400',
-        'description': '多层收纳，隐藏式把手，LED感应灯'
-    },
-    {
-        'id': 6,
-        'name': '创意茶几',
-        'price': 2800,
-        'category': '茶几',
-        'image': 'https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=400',
-        'description': '岩板台面，金属框架，现代轻奢风格'
-    },
-    {
-        'id': 7,
-        'name': '布艺餐椅',
-        'price': 890,
-        'category': '椅子',
-        'image': 'https://images.unsplash.com/photo-1503602642458-232111445657?w=400',
-        'description': '高回弹海绵，亚麻布料，可叠放设计'
-    },
-    {
-        'id': 8,
-        'name': '衣柜',
-        'price': 9800,
-        'category': '柜子',
-        'image': 'https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=400',
-        'description': '推拉门设计，分区合理，内置穿衣镜'
+        'name': '编号5 - 吉祥如意沙发',
+        'price': 56800,
+        'category': '沙发',
+        'wood': '楸木',
+        'image': 'https://neeko-copilot.bytedance.net/api/text_to_image?prompt=Chinese%20traditional%20carved%20wooden%20sofa%20with%20crane%20and%20pine%20carvings%20auspicious%20design%20ash%20wood%20classical%20furniture&image_size=landscape_4_3',
+        'description': '松鹤延年，吉祥如意，楸木材质，寓意美好'
     }
 ]
 
-categories = ['全部', '沙发', '床', '餐桌', '椅子', '柜子', '茶几']
+categories = ['全部', '茶几', '供桌', '沙发', '长椅']
+wood_types = ['全部', '红椿木', '楸木', '楠木']
 
 @app.route('/')
 def index():
-    return render_template('index.html', products=furniture_products, categories=categories)
+    return render_template('index.html', products=furniture_products, categories=categories, wood_types=wood_types)
 
 @app.route('/product/<int:product_id>')
 def product_detail(product_id):
