@@ -9,7 +9,7 @@ furniture_products = [
         'price': 18800,
         'category': '茶几',
         'wood': '红椿木',
-        'image': 'https://neeko-copilot.bytedance.net/api/text_to_image?prompt=Chinese%20traditional%20carved%20wooden%20coffee%20table%20with%20intricate%20floral%20patterns%20red%20camphor%20wood%20classical%20furniture%20workshop%20background&image_size=landscape_4_3',
+        'image': '/static/images/微信图片_20260614033122_333_2.jpg',
         'description': '精雕细琢，传统工艺，红椿木材质，花纹精美'
     },
     {
@@ -18,7 +18,7 @@ furniture_products = [
         'price': 35800,
         'category': '供桌',
         'wood': '楸木',
-        'image': 'https://neeko-copilot.bytedance.net/api/text_to_image?prompt=Chinese%20traditional%20carved%20wooden%20altar%20table%20with%20elaborate%20carvings%20ash%20wood%20classical%20Chinese%20furniture&image_size=landscape_4_3',
+        'image': '/static/images/微信图片_20260614033123_334_2.jpg',
         'description': '繁复雕花，庄重典雅，楸木材质，寓意吉祥'
     },
     {
@@ -27,7 +27,7 @@ furniture_products = [
         'price': 68000,
         'category': '沙发',
         'wood': '楠木',
-        'image': 'https://neeko-copilot.bytedance.net/api/text_to_image?prompt=Chinese%20traditional%20carved%20wooden%20sofa%20set%20with%20intricate%20dragon%20and%20phoenix%20carvings%20nanmu%20wood%20classical%20furniture&image_size=landscape_4_3',
+        'image': '/static/images/微信图片_20260614033124_335_2.jpg',
         'description': '龙凤呈祥，大气磅礴，楠木材质，尊贵典雅'
     },
     {
@@ -36,7 +36,7 @@ furniture_products = [
         'price': 28800,
         'category': '长椅',
         'wood': '红椿木',
-        'image': 'https://neeko-copilot.bytedance.net/api/text_to_image?prompt=Chinese%20traditional%20carved%20wooden%20bench%20with%20dragon%20sculptures%20and%20marble%20inserts%20red%20camphor%20wood%20classical%20style&image_size=landscape_4_3',
+        'image': '/static/images/微信图片_20260614033125_336_2.jpg',
         'description': '双龙戏珠，镶嵌云石，红椿木材质，工艺精湛'
     },
     {
@@ -45,7 +45,7 @@ furniture_products = [
         'price': 56800,
         'category': '沙发',
         'wood': '楸木',
-        'image': 'https://neeko-copilot.bytedance.net/api/text_to_image?prompt=Chinese%20traditional%20carved%20wooden%20sofa%20with%20crane%20and%20pine%20carvings%20auspicious%20design%20ash%20wood%20classical%20furniture&image_size=landscape_4_3',
+        'image': '/static/images/微信图片_20260614033127_338_2.jpg',
         'description': '松鹤延年，吉祥如意，楸木材质，寓意美好'
     }
 ]
