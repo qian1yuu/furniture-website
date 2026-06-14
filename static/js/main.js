@@ -48,11 +48,11 @@ var lightboxScale = 1;
 var lightboxTranslateX = 0;
 var lightboxTranslateY = 0;
 var isDragging = false;
-var hasDragged = false;
 var dragStartX = 0;
 var dragStartY = 0;
 var dragTranslateStartX = 0;
 var dragTranslateStartY = 0;
+var mouseMoved = false;
 
 function updateLightboxTransform() {
     var lightboxImg = document.getElementById('lightbox-img');
@@ -70,7 +70,6 @@ function openLightbox(imageSrc, caption) {
     lightboxScale = 1;
     lightboxTranslateX = 0;
     lightboxTranslateY = 0;
-    hasDragged = false;
     
     lightboxImg.src = imageSrc;
     lightboxImg.alt = caption;
@@ -85,7 +84,6 @@ function openLightbox(imageSrc, caption) {
 }
 
 function closeLightbox() {
-    if (hasDragged) return;
     var lightbox = document.getElementById('lightbox');
     var lightboxImg = document.getElementById('lightbox-img');
     lightboxScale = 1;
@@ -99,7 +97,7 @@ function closeLightbox() {
     document.body.style.overflow = '';
 }
 
-// 鼠标滚轮缩放
+// 滚轮缩放
 document.getElementById('lightbox-img').addEventListener('wheel', function(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -118,10 +116,11 @@ document.getElementById('lightbox-img').addEventListener('wheel', function(e) {
     updateLightboxTransform();
 });
 
-// 鼠标拖拽平移（仅在放大时）
+// 拖拽平移
 document.getElementById('lightbox-img').addEventListener('mousedown', function(e) {
     if (lightboxScale <= 1) return;
     e.preventDefault();
+    mouseMoved = false;
     isDragging = true;
     dragStartX = e.clientX;
     dragStartY = e.clientY;
@@ -133,7 +132,7 @@ document.getElementById('lightbox-img').addEventListener('mousedown', function(e
 
 document.addEventListener('mousemove', function(e) {
     if (!isDragging) return;
-    hasDragged = true;
+    mouseMoved = true;
     lightboxTranslateX = dragTranslateStartX + (e.clientX - dragStartX);
     lightboxTranslateY = dragTranslateStartY + (e.clientY - dragStartY);
     var lightboxImg = document.getElementById('lightbox-img');
@@ -149,13 +148,10 @@ document.addEventListener('mouseup', function() {
         if (lightboxImg) {
             lightboxImg.style.cursor = lightboxScale > 1 ? 'grab' : 'zoom-in';
         }
-        setTimeout(function() {
-            hasDragged = false;
-        }, 100);
     }
 });
 
-// 双击重置缩放
+// 双击重置
 document.getElementById('lightbox-img').addEventListener('dblclick', function(e) {
     e.preventDefault();
     lightboxScale = 1;
@@ -165,9 +161,32 @@ document.getElementById('lightbox-img').addEventListener('dblclick', function(e)
     this.style.transform = 'scale(1)';
 });
 
+// 点击背景关闭（拖拽过的点击不关闭）
+document.getElementById('lightbox').addEventListener('mousedown', function(e) {
+    mouseMoved = false;
+});
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this || e.target.classList.contains('lightbox-caption')) {
+        if (!mouseMoved) {
+            closeLightbox();
+        }
+    }
+});
+
+// 关闭按钮
+document.querySelector('.lightbox-close').addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeLightbox();
+});
+
+// ESC 关闭
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-        closeLightbox();
+        var lightbox = document.getElementById('lightbox');
+        if (lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
     }
 });
 
