@@ -48,6 +48,7 @@ var lightboxScale = 1;
 var lightboxTranslateX = 0;
 var lightboxTranslateY = 0;
 var isDragging = false;
+var hasDragged = false;
 var dragStartX = 0;
 var dragStartY = 0;
 var dragTranslateStartX = 0;
@@ -69,6 +70,7 @@ function openLightbox(imageSrc, caption) {
     lightboxScale = 1;
     lightboxTranslateX = 0;
     lightboxTranslateY = 0;
+    hasDragged = false;
     
     lightboxImg.src = imageSrc;
     lightboxImg.alt = caption;
@@ -83,6 +85,7 @@ function openLightbox(imageSrc, caption) {
 }
 
 function closeLightbox() {
+    if (hasDragged) return;
     var lightbox = document.getElementById('lightbox');
     var lightboxImg = document.getElementById('lightbox-img');
     lightboxScale = 1;
@@ -130,6 +133,7 @@ document.getElementById('lightbox-img').addEventListener('mousedown', function(e
 
 document.addEventListener('mousemove', function(e) {
     if (!isDragging) return;
+    hasDragged = true;
     lightboxTranslateX = dragTranslateStartX + (e.clientX - dragStartX);
     lightboxTranslateY = dragTranslateStartY + (e.clientY - dragStartY);
     var lightboxImg = document.getElementById('lightbox-img');
@@ -145,6 +149,9 @@ document.addEventListener('mouseup', function() {
         if (lightboxImg) {
             lightboxImg.style.cursor = lightboxScale > 1 ? 'grab' : 'zoom-in';
         }
+        setTimeout(function() {
+            hasDragged = false;
+        }, 100);
     }
 });
 
