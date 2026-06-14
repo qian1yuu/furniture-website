@@ -118,21 +118,21 @@ furniture_products = [
     },
     {
         'id': 9,
-        'name': '编号9 - 红椿木雕花龙椅',
+        'name': '编号9 - 梅花小椅（无大理石）',
         'price': 78800,
         'category': '龙椅',
         'wood': '红椿木',
-        'image': '/static/images/大龙椅.jpg',
+        'image': '/static/images/梅花小椅无大理石.jpg',
         'description': '吉祥如意，双龙护主，红椿木材质，精雕细琢，工艺精湛'
     },
     {
         'id': 10,
-        'name': '编号10 - 红椿木雕花座椅套件',
+        'name': '编号10 - 梅花小椅（有大理石）',
         'price': 128800,
         'category': '龙椅',
         'wood': '红椿木',
-        'image': '/static/images/龙椅茶几组合.jpg',
-        'description': '吉祥如意，镶嵌云石，红椿木材质，四件套件，尊贵典雅'
+        'image': '/static/images/梅花小椅有大理石.jpg',
+        'description': '吉祥如意，镶嵌云石，红椿木材质，尊贵典雅'
     }
 ]
 
