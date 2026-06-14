@@ -495,10 +495,12 @@ body {
     justify-content: center;
     opacity: 0;
     transition: var(--transition);
+    pointer-events: none;
 }
 
 .product-card:hover .product-overlay {
     opacity: 1;
+    pointer-events: auto;
 }
 
 .btn-view {
@@ -997,7 +999,7 @@ body {
     .product-detail-content {
         padding: 30px;
     }
-}
+
 
 .lightbox {
     display: none;

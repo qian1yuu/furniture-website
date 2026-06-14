@@ -73,7 +73,7 @@ furniture_products = [
     },
     {
         'id': 4,
-        'name': '编号4 - 吉祥如意沙发',
+        'name': '编号4 - 椿凳茶几套件（无大理石）',
         'price': 28800,
         'category': '长椅',
         'wood': '红椿木',
