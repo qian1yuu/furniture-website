@@ -103,9 +103,9 @@ furniture_products = [
         'name': '编号7 - 楸木供桌',
         'price': 42800,
         'category': '供桌',
-        'wood': '红椿木',
-        'image': '/static/images/红椿供桌.jpg',
-        'description': '花开富贵，精雕细琢，红椿木材质，典雅大气'
+        'wood': '楸木',
+        'image': '/static/images/楸木供桌.jpg',
+        'description': '花开富贵，精雕细琢，楸木材质，典雅大气'
     },
     {
         'id': 8,
