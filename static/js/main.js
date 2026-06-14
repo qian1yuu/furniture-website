@@ -44,13 +44,36 @@ function openEmail() {
     }
 }
 
+var lightboxScale = 1;
+var lightboxTranslateX = 0;
+var lightboxTranslateY = 0;
+var isDragging = false;
+var dragStartX = 0;
+var dragStartY = 0;
+var dragTranslateStartX = 0;
+var dragTranslateStartY = 0;
+
+function updateLightboxTransform() {
+    var lightboxImg = document.getElementById('lightbox-img');
+    if (lightboxImg) {
+        lightboxImg.style.transform = 'translate(' + lightboxTranslateX + 'px, ' + lightboxTranslateY + 'px) scale(' + lightboxScale + ')';
+        lightboxImg.style.transition = 'transform 0.1s ease-out';
+    }
+}
+
 function openLightbox(imageSrc, caption) {
     var lightbox = document.getElementById('lightbox');
     var lightboxImg = document.getElementById('lightbox-img');
     var lightboxCaption = document.getElementById('lightbox-caption');
     
+    lightboxScale = 1;
+    lightboxTranslateX = 0;
+    lightboxTranslateY = 0;
+    
     lightboxImg.src = imageSrc;
     lightboxImg.alt = caption;
+    lightboxImg.style.transform = 'scale(1)';
+    lightboxImg.style.cursor = 'zoom-in';
     if (lightboxCaption) {
         lightboxCaption.textContent = caption;
     }
@@ -61,9 +84,79 @@ function openLightbox(imageSrc, caption) {
 
 function closeLightbox() {
     var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    lightboxScale = 1;
+    lightboxTranslateX = 0;
+    lightboxTranslateY = 0;
+    if (lightboxImg) {
+        lightboxImg.style.transform = 'scale(1)';
+        lightboxImg.style.cursor = 'zoom-in';
+    }
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
 }
+
+// 鼠标滚轮缩放
+document.getElementById('lightbox-img').addEventListener('wheel', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var delta = e.deltaY > 0 ? -0.15 : 0.15;
+    var newScale = lightboxScale + delta;
+    newScale = Math.max(0.5, Math.min(5, newScale));
+    lightboxScale = newScale;
+    
+    if (lightboxScale <= 1) {
+        lightboxTranslateX = 0;
+        lightboxTranslateY = 0;
+    }
+    
+    var lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.style.cursor = lightboxScale > 1 ? 'grab' : 'zoom-in';
+    updateLightboxTransform();
+});
+
+// 鼠标拖拽平移（仅在放大时）
+document.getElementById('lightbox-img').addEventListener('mousedown', function(e) {
+    if (lightboxScale <= 1) return;
+    e.preventDefault();
+    isDragging = true;
+    dragStartX = e.clientX;
+    dragStartY = e.clientY;
+    dragTranslateStartX = lightboxTranslateX;
+    dragTranslateStartY = lightboxTranslateY;
+    this.style.cursor = 'grabbing';
+    this.style.transition = 'none';
+});
+
+document.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    lightboxTranslateX = dragTranslateStartX + (e.clientX - dragStartX);
+    lightboxTranslateY = dragTranslateStartY + (e.clientY - dragStartY);
+    var lightboxImg = document.getElementById('lightbox-img');
+    if (lightboxImg) {
+        lightboxImg.style.transform = 'translate(' + lightboxTranslateX + 'px, ' + lightboxTranslateY + 'px) scale(' + lightboxScale + ')';
+    }
+});
+
+document.addEventListener('mouseup', function() {
+    if (isDragging) {
+        isDragging = false;
+        var lightboxImg = document.getElementById('lightbox-img');
+        if (lightboxImg) {
+            lightboxImg.style.cursor = lightboxScale > 1 ? 'grab' : 'zoom-in';
+        }
+    }
+});
+
+// 双击重置缩放
+document.getElementById('lightbox-img').addEventListener('dblclick', function(e) {
+    e.preventDefault();
+    lightboxScale = 1;
+    lightboxTranslateX = 0;
+    lightboxTranslateY = 0;
+    this.style.cursor = 'zoom-in';
+    this.style.transform = 'scale(1)';
+});
 
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
