@@ -50,7 +50,7 @@ furniture_products = [
         'price': 18800,
         'category': '茶几',
         'wood': '红椿木',
-        'image': '/static/images/微信图片_20260614033122_333_2.jpg',
+        'image': '/static/images/茶几.jpg',
         'description': '精雕细琢，传统工艺，红椿木材质，花纹精美'
     },
     {
@@ -59,7 +59,7 @@ furniture_products = [
         'price': 35800,
         'category': '供桌',
         'wood': '红椿木',
-        'image': '/static/images/微信图片_20260614033123_334_2.jpg',
+        'image': '/static/images/红椿供桌.jpg',
         'description': '繁复雕花，庄重典雅，红椿木材质，寓意吉祥'
     },
     {
@@ -68,7 +68,7 @@ furniture_products = [
         'price': 68000,
         'category': '长椅',
         'wood': '红椿木',
-        'image': '/static/images/微信图片_20260614033124_335_2.jpg',
+        'image': '/static/images/龙椅茶几组合.jpg',
         'description': '龙凤呈祥，大气磅礴，红椿木材质，尊贵典雅'
     },
     {
@@ -77,7 +77,7 @@ furniture_products = [
         'price': 28800,
         'category': '长椅',
         'wood': '红椿木',
-        'image': '/static/images/微信图片_20260614033125_336_6.jpeg',
+        'image': '/static/images/椿凳茶几组合.jpeg',
         'description': '双龙戏珠，镶嵌云石，红椿木材质，工艺精湛'
     },
     {
@@ -86,7 +86,7 @@ furniture_products = [
         'price': 56800,
         'category': '龙椅',
         'wood': '红椿木',
-        'image': '/static/images/微信图片_20260614033127_338_2.jpg',
+        'image': '/static/images/大龙椅.jpg',
         'description': '松鹤延年，吉祥如意，红椿木材质，寓意美好'
     },
     {
@@ -95,16 +95,16 @@ furniture_products = [
         'price': 52800,
         'category': '龙椅',
         'wood': '红椿木',
-        'image': '/static/images/微信图片_20260614033128_339_2.jpg',
+        'image': '/static/images/梅花大椅.jpg',
         'description': '吉祥如意，镶嵌云石，红椿木材质，雕刻精美'
     },
     {
         'id': 7,
-        'name': '编号7 - 红椿供桌',
+        'name': '编号7 - 楸木供桌',
         'price': 42800,
         'category': '供桌',
         'wood': '红椿木',
-        'image': '/static/images/微信图片_20260614033131_340_2.jpg',
+        'image': '/static/images/红椿供桌.jpg',
         'description': '花开富贵，精雕细琢，红椿木材质，典雅大气'
     },
     {
@@ -113,8 +113,26 @@ furniture_products = [
         'price': 6800,
         'category': '花架',
         'wood': '红椿木',
-        'image': '/static/images/微信图片_20260614033137_342_2.jpg',
+        'image': '/static/images/花架.jpg',
         'description': '莲花雕刻，精致典雅，红椿木材质，高贵大方'
+    },
+    {
+        'id': 9,
+        'name': '编号9 - 红椿木雕花龙椅',
+        'price': 78800,
+        'category': '龙椅',
+        'wood': '红椿木',
+        'image': '/static/images/大龙椅.jpg',
+        'description': '吉祥如意，双龙护主，红椿木材质，精雕细琢，工艺精湛'
+    },
+    {
+        'id': 10,
+        'name': '编号10 - 红椿木雕花座椅套件',
+        'price': 128800,
+        'category': '龙椅',
+        'wood': '红椿木',
+        'image': '/static/images/龙椅茶几组合.jpg',
+        'description': '吉祥如意，镶嵌云石，红椿木材质，四件套件，尊贵典雅'
     }
 ]
 

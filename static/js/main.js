@@ -44,6 +44,33 @@ function openEmail() {
     }
 }
 
+function openLightbox(imageSrc, caption) {
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxCaption = document.getElementById('lightbox-caption');
+    
+    lightboxImg.src = imageSrc;
+    lightboxImg.alt = caption;
+    if (lightboxCaption) {
+        lightboxCaption.textContent = caption;
+    }
+    
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    var lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const categoryTabs = document.querySelectorAll('.category-tab');
     const woodTabs = document.querySelectorAll('.wood-tab');

@@ -103,9 +103,10 @@
                 {% for product in products %}
                 <div class="product-card" data-category="{{ product.category }}" data-wood="{{ product.wood }}">
                     <div class="product-image-wrapper">
-                        <img src="{{ product.image }}" alt="{{ product.name }}" class="product-image">
+                        <img src="{{ product.image }}" alt="{{ product.name }}" class="product-image" onclick="openLightbox('{{ product.image }}', '{{ product.name }}')">
                         <div class="watermark">榆城家具</div>
                         <div class="product-overlay">
+                            <a href="javascript:void(0)" class="btn-view" onclick="openLightbox('{{ product.image }}', '{{ product.name }}')">查看大图</a>
                             <a href="/product/{{ product.id }}" class="btn-view">查看详情</a>
                         </div>
                     </div>
@@ -246,6 +247,12 @@
             </div>
         </div>
     </footer>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="event.stopPropagation(); closeLightbox()">&times;</span>
+        <img id="lightbox-img" class="lightbox-img" src="" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
 
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
