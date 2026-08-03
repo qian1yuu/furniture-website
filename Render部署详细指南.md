@@ -76,7 +76,7 @@ git push -u origin main
 填写以下信息：
 
 **基本信息：**
-- **Name:** `furniture-website`（或你喜欢的名字）
+- **Name:** `yucheng-furniture`（或你喜欢的名字）
 - **Region:** `Singapore`（新加坡，离中国最近）
 - **Runtime:** `Python 3`
 
@@ -99,7 +99,7 @@ git push -u origin main
 
 **网址示例：**
 ```
-https://furniture-website.onrender.com
+https://yucheng-furniture.onrender.com
 ```
 
 ---
@@ -175,7 +175,7 @@ https://furniture-website.onrender.com
 
 部署成功后，你的家具网站就可以在互联网上访问了！
 
-**示例网址：** `https://furniture-website.onrender.com`
+**示例网址：** `https://yucheng-furniture.onrender.com`
 
 **下一步：**
 - 分享给朋友
