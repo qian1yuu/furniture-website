@@ -40,7 +40,7 @@
             </div>
             <div class="hero-visual">
                 <div class="hero-frame">
-                    <img src="{{ url_for('static', filename='images/龙椅茶几组合.jpg') }}" alt="榆城家具古典木雕作品">
+                    <div class="hero-photo" role="img" aria-label="榆城家具古典木雕作品" style="background-image:url('{{ url_for('static', filename='images/龙椅茶几组合.jpg') }}')"></div>
                     <span class="hero-seal" aria-hidden="true">榆城</span>
                 </div>
                 <p class="hero-caption">一木一器 · 手作天成</p>
@@ -106,7 +106,7 @@
                 {% for product in products %}
                 <div class="product-card" data-category="{{ product.category }}" data-wood="{{ product.wood }}">
                     <div class="product-image-wrapper">
-                        <img src="{{ product.image }}" alt="{{ product.name }}" class="product-image" onclick="openLightbox('{{ product.image }}', '{{ product.name }}')" loading="lazy">
+                        <div class="product-image" role="img" aria-label="{{ product.name }}" style="background-image:url('{{ product.image }}')" onclick="openLightbox('{{ product.image }}', '{{ product.name }}')"></div>
                         <div class="watermark">榆城家具</div>
                         <div class="product-overlay">
                             <a href="javascript:void(0)" class="btn-view" onclick="openLightbox('{{ product.image }}', '{{ product.name }}')">查看大图</a>
@@ -159,7 +159,7 @@
                 </div>
                 <div class="about-picture">
                     <div class="about-frame">
-                        <img src="{{ url_for('static', filename='images/梅花大椅.jpg') }}" alt="榆城家具手工木雕作品" loading="lazy">
+                        <div class="about-photo" role="img" aria-label="榆城家具手工木雕作品" style="background-image:url('{{ url_for('static', filename='images/梅花大椅.jpg') }}')"></div>
                         <span class="about-seal" aria-hidden="true">匠</span>
                     </div>
                     <p class="about-caption">一木一器 · 手作天成</p>
@@ -252,7 +252,7 @@
 
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" class="lightbox-img" src="" alt="">
+        <div id="lightbox-img" class="lightbox-img" role="img" aria-label=""></div>
         <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
 

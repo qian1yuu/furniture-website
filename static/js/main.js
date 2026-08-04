@@ -71,8 +71,8 @@ function openLightbox(imageSrc, caption) {
     lightboxTranslateX = 0;
     lightboxTranslateY = 0;
     
-    lightboxImg.src = imageSrc;
-    lightboxImg.alt = caption;
+    lightboxImg.style.backgroundImage = "url('" + imageSrc + "')";
+    lightboxImg.setAttribute('aria-label', caption);
     lightboxImg.style.transform = 'scale(1)';
     lightboxImg.style.cursor = 'zoom-in';
     if (lightboxCaption) {
@@ -259,9 +259,18 @@ document.addEventListener('DOMContentLoaded', function() {
 // 图片防盗与截图保护：阻止右键/拖拽另存、复制图片与页面另存/打印/查看源码
 (function() {
     function isProtected(el) {
+        var protectedClasses = ['lightbox', 'product-image', 'product-detail-photo', 'hero-photo', 'about-photo'];
         while (el && el !== document.body) {
-            if (el.tagName === 'IMG' || (el.className && String(el.className).indexOf('lightbox') !== -1)) {
+            if (el.tagName === 'IMG') {
                 return true;
+            }
+            if (el.className) {
+                var name = String(el.className);
+                for (var i = 0; i < protectedClasses.length; i++) {
+                    if (name.indexOf(protectedClasses[i]) !== -1) {
+                        return true;
+                    }
+                }
             }
             el = el.parentNode;
         }
@@ -281,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.addEventListener('selectstart', function(e) {
-        if (e.target && e.target.tagName === 'IMG') {
+        if (isProtected(e.target)) {
             e.preventDefault();
         }
     });

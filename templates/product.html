@@ -39,7 +39,7 @@
             <div class="product-detail-content">
                 <div class="product-gallery">
                     <div class="main-image">
-                        <img src="{{ product.image }}" alt="{{ product.name }}" onclick="openLightbox('{{ product.image }}', '{{ product.name }}')">
+                        <div class="product-detail-photo" role="img" aria-label="{{ product.name }}" style="background-image:url('{{ product.image }}')" onclick="openLightbox('{{ product.image }}', '{{ product.name }}')"></div>
                         <div class="watermark">榆城家具</div>
                         <div class="image-hint">点击图片放大查看</div>
                     </div>
@@ -136,7 +136,7 @@
 
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" class="lightbox-img" src="" alt="">
+        <div id="lightbox-img" class="lightbox-img" role="img" aria-label=""></div>
         <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
 
