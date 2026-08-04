@@ -255,3 +255,61 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// 图片防盗与截图保护：阻止右键/拖拽另存、复制图片与页面另存/打印/查看源码
+(function() {
+    function isProtected(el) {
+        while (el && el !== document.body) {
+            if (el.tagName === 'IMG' || (el.className && String(el.className).indexOf('lightbox') !== -1)) {
+                return true;
+            }
+            el = el.parentNode;
+        }
+        return false;
+    }
+
+    document.addEventListener('contextmenu', function(e) {
+        if (isProtected(e.target)) {
+            e.preventDefault();
+        }
+    });
+
+    document.addEventListener('dragstart', function(e) {
+        if (isProtected(e.target)) {
+            e.preventDefault();
+        }
+    });
+
+    document.addEventListener('selectstart', function(e) {
+        if (e.target && e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
+
+    document.addEventListener('copy', function(e) {
+        if (isProtected(e.target)) {
+            e.preventDefault();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        var code = e.keyCode || e.which || 0;
+        var ctrlOrMeta = e.ctrlKey || e.metaKey;
+        if (ctrlOrMeta && (code === 83 || code === 80 || code === 85)) {
+            e.preventDefault();
+        }
+    });
+
+    function protectImages() {
+        var imgs = document.querySelectorAll('img');
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].setAttribute('draggable', 'false');
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', protectImages);
+    } else {
+        protectImages();
+    }
+})();

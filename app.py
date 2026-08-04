@@ -170,6 +170,16 @@ def submit_message():
     except Exception as e:
         return jsonify({'success': False, 'message': f'提交失败: {str(e)}'})
 
+@app.before_request
+def block_image_hotlinking():
+    if request.path.startswith('/static/images/') and request.method == 'GET':
+        referer = request.headers.get('Referer', '')
+        if referer:
+            from urllib.parse import urlparse
+            referer_host = urlparse(referer).netloc
+            if referer_host and referer_host != request.host:
+                return '', 403
+
 if __name__ == '__main__':
     import os
     port = int(os.environ.get("PORT", 5000))
