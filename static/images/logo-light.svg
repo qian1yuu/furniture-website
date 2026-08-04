@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="120" viewBox="0 0 420 120" role="img" aria-label="榆城家具">
+  <style>
+    .seal-text { font-family: "Noto Serif SC", "KaiTi", "STKaiti", "Kaiti SC", "SimSun", serif; font-weight: 700; fill: #fdf7ec; }
+    .brand-name { font-family: "Noto Serif SC", "KaiTi", "STKaiti", "Kaiti SC", "SimSun", serif; font-weight: 700; fill: #f5ecd9; }
+    .brand-sub { font-family: "Noto Serif SC", "KaiTi", "STKaiti", "Kaiti SC", "SimSun", serif; fill: #e3c98f; }
+    .brand-en { font-family: Arial, "Helvetica Neue", sans-serif; fill: #b08d5a; letter-spacing: 3px; }
+  </style>
+  <rect x="6" y="18" width="84" height="84" rx="4" fill="#9c2f24"/>
+  <rect x="11" y="23" width="74" height="74" rx="3" fill="none" stroke="#d9c39a" stroke-width="1.5"/>
+  <text x="48" y="60" text-anchor="middle" class="seal-text" font-size="30">榆</text>
+  <text x="48" y="92" text-anchor="middle" class="seal-text" font-size="30">城</text>
+  <line x1="110" y1="60" x2="126" y2="60" stroke="#b08d5a" stroke-width="2"/>
+  <rect x="117" y="57" width="6" height="6" fill="#e3c98f" transform="rotate(45 120 60)"/>
+  <text x="146" y="64" class="brand-name" font-size="42" letter-spacing="7">榆城家具</text>
+  <text x="148" y="90" class="brand-sub" font-size="14" letter-spacing="3">匠心之作 · 传承经典</text>
+  <text x="148" y="108" class="brand-en" font-size="10">YUCHENG FURNITURE</text>
+</svg>
