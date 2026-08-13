@@ -1399,3 +1399,139 @@ img {
         width: calc(100% - 40px);
     }
 }
+
+.map-link {
+    color: var(--cinnabar) !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    border-bottom: 1px solid var(--line-gold);
+    transition: border-color 0.2s ease;
+}
+
+.map-link:hover {
+    border-color: var(--cinnabar);
+}
+
+.map-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.map-modal.show {
+    display: flex;
+}
+
+.map-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 12, 7, 0.58);
+    backdrop-filter: blur(4px);
+}
+
+.map-modal-panel {
+    position: relative;
+    z-index: 1;
+    width: min(540px, 100%);
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    background: var(--white);
+    border: 1px solid var(--line-gold);
+    box-shadow: var(--shadow-soft);
+    padding: 28px 26px 30px;
+    text-align: center;
+}
+
+.map-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.map-modal-close:hover {
+    border-color: var(--cinnabar);
+    color: var(--cinnabar);
+}
+
+.map-modal-panel h3 {
+    color: var(--ink);
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.map-modal-address {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.7;
+}
+
+.map-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.map-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 100px;
+    padding: 14px 8px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14px;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.map-option:hover {
+    border-color: var(--line-gold);
+    background: var(--paper-deep);
+    transform: translateY(-2px);
+}
+
+.map-option-mark {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-family: var(--kai);
+    font-size: 18px;
+}
+
+.map-option-amap .map-option-mark { background: #e24a36; }
+.map-option-tencent .map-option-mark { background: #0097e6; }
+.map-option-baidu .map-option-mark { background: #2f7df6; }
+.map-option-apple .map-option-mark { background: #222; }
+.map-option-google .map-option-mark { background: #1a73e8; }
+.map-option-huawei .map-option-mark { background: #c7000b; }
+
+body.modal-open { overflow: hidden; }
+
+@media (max-width: 600px) {
+    .map-modal { padding: 14px; }
+    .map-modal-panel { padding: 26px 16px 24px; }
+    .map-options { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .map-option { min-height: 92px; padding: 12px 6px; }
+}

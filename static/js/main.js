@@ -322,3 +322,95 @@ document.addEventListener('DOMContentLoaded', function() {
         protectImages();
     }
 })();
+
+var mapKeyword = '%E4%BA%91%E5%8D%97%E5%A4%A7%E7%90%86%E5%B8%82%E6%B9%BE%E6%A1%A5%E9%95%87%E6%A6%86%E5%9F%8E%E5%AE%B6%E5%85%B7';
+
+function getMapUrl(type) {
+    if (type === 'amap') {
+        return 'https://uri.amap.com/search?keyword=' + mapKeyword;
+    }
+    if (type === 'tencent') {
+        return 'https://apis.map.qq.com/uri/v1/search?keyword=' + mapKeyword + '&referer=yu_cheng_furniture';
+    }
+    if (type === 'baidu') {
+        return 'https://map.baidu.com/?querytype=s&wd=' + mapKeyword + '&region=%E4%BA%91%E5%8D%97%E5%A4%A7%E7%90%86%E5%B8%82';
+    }
+    if (type === 'apple') {
+        return 'https://maps.apple.com/?q=' + mapKeyword;
+    }
+    if (type === 'google') {
+        return 'https://www.google.com/maps/search/?api=1&query=' + mapKeyword;
+    }
+    if (type === 'huawei') {
+        return 'https://www.petalmaps.com/?q=' + mapKeyword;
+    }
+    return '#';
+}
+
+function openMap() {
+    var modal = document.getElementById('map-modal');
+    if (!modal) return;
+    var choices = modal.querySelectorAll('[data-map]');
+    for (var i = 0; i < choices.length; i++) {
+        var type = choices[i].getAttribute('data-map');
+        choices[i].setAttribute('href', getMapUrl(type));
+    }
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+}
+
+function closeMap() {
+    var modal = document.getElementById('map-modal');
+    if (!modal) return;
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+}
+
+function makeAddressClickable() {
+    var items = document.querySelectorAll('.contact-item');
+    for (var i = 0; i < items.length; i++) {
+        var strong = items[i].querySelector('strong');
+        if (!strong || strong.textContent !== '\u5730\u5740') continue;
+        var copy = items[i].querySelector('.contact-copy');
+        if (!copy) continue;
+        var p = copy.querySelector('p');
+        if (!p || p.querySelector('a')) continue;
+
+        var address = p.textContent.trim();
+        var link = document.createElement('a');
+        link.href = '#';
+        link.className = 'map-link';
+        link.setAttribute('aria-label', '\u6253\u5f00\u5730\u56fe');
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            openMap();
+        });
+        link.textContent = address;
+        p.textContent = '';
+        p.appendChild(link);
+
+        var hint = document.createElement('p');
+        hint.className = 'contact-hint';
+        hint.textContent = '\u70b9\u51fb\u4e0a\u65b9\u5730\u5740\uff0c\u9009\u62e9\u5730\u56fe\u6253\u5f00';
+        copy.appendChild(hint);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    makeAddressClickable();
+
+    var modal = document.getElementById('map-modal');
+    if (!modal) return;
+
+    var closeBtn = modal.querySelector('.map-modal-close');
+    if (closeBtn) closeBtn.addEventListener('click', closeMap);
+
+    var backdrop = modal.querySelector('.map-modal-backdrop');
+    if (backdrop) backdrop.addEventListener('click', closeMap);
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) closeMap();
+    });
+});

@@ -256,6 +256,23 @@
         <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
 
+    <div id="map-modal" class="map-modal" aria-hidden="true">
+        <div class="map-modal-backdrop"></div>
+        <div class="map-modal-panel" role="dialog" aria-modal="true" aria-labelledby="map-modal-title">
+            <button type="button" class="map-modal-close" aria-label="&#x5173;&#x95ed;">&times;</button>
+            <h3 id="map-modal-title">&#x9009;&#x62e9;&#x5730;&#x56fe;&#x6253;&#x5f00;</h3>
+            <p class="map-modal-address">&#x4e91;&#x5357;&#x5927;&#x7406;&#x5e02;&#x6e7e;&#x6865;&#x9547;&#x6986;&#x57ce;&#x5bb6;&#x5177;</p>
+            <div class="map-options">
+                <a href="#" class="map-option map-option-amap" data-map="amap" target="_blank" rel="noopener noreferrer"><span class="map-option-mark">&#x9ad8;</span><span>&#x9ad8;&#x5fb7;&#x5730;&#x56fe;</span></a>
+                <a href="#" class="map-option map-option-tencent" data-map="tencent" target="_blank" rel="noopener noreferrer"><span class="map-option-mark">&#x817e;</span><span>&#x817e;&#x8baf;&#x5730;&#x56fe;</span></a>
+                <a href="#" class="map-option map-option-baidu" data-map="baidu" target="_blank" rel="noopener noreferrer"><span class="map-option-mark">&#x767e;</span><span>&#x767e;&#x5ea6;&#x5730;&#x56fe;</span></a>
+                <a href="#" class="map-option map-option-apple" data-map="apple" target="_blank" rel="noopener noreferrer"><span class="map-option-mark">&#x82f9;</span><span>&#x82f9;&#x679c;&#x5730;&#x56fe;</span></a>
+                <a href="#" class="map-option map-option-google" data-map="google" target="_blank" rel="noopener noreferrer"><span class="map-option-mark">G</span><span>Google &#x5730;&#x56fe;</span></a>
+                <a href="#" class="map-option map-option-huawei" data-map="huawei" target="_blank" rel="noopener noreferrer"><span class="map-option-mark">&#x534e;</span><span>&#x534e;&#x4e3a; Petal &#x5730;&#x56fe;</span></a>
+            </div>
+        </div>
+    </div>
+
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
 </body>
