@@ -56,7 +56,7 @@ furniture_products = [
     {
         'id': 2,
         'name': '编号2 - 雕花供桌',
-        'price': 35800,
+        'price': 16800,
         'category': '供桌',
         'wood': '红椿木',
         'image': '/static/images/红椿供桌.jpg',
@@ -65,7 +65,7 @@ furniture_products = [
     {
         'id': 3,
         'name': '编号3 - 古典龙椅茶几组合',
-        'price': 68000,
+        'price': 128000,
         'category': '长椅',
         'wood': '红椿木',
         'image': '/static/images/龙椅茶几组合.jpg',
@@ -74,7 +74,7 @@ furniture_products = [
     {
         'id': 4,
         'name': '编号4 - 椿凳茶几套件（无大理石）',
-        'price': 28800,
+        'price': 18800,
         'category': '长椅',
         'wood': '红椿木',
         'image': '/static/images/椿凳茶几组合.jpeg',
@@ -83,7 +83,7 @@ furniture_products = [
     {
         'id': 5,
         'name': '编号5 - 龙纹雕花长椅',
-        'price': 56800,
+        'price': 12800,
         'category': '龙椅',
         'wood': '红椿木',
         'image': '/static/images/大龙椅.jpg',
@@ -92,7 +92,7 @@ furniture_products = [
     {
         'id': 6,
         'name': '编号6 - 红椿木三人座梅花椅',
-        'price': 52800,
+        'price': 12800,
         'category': '龙椅',
         'wood': '红椿木',
         'image': '/static/images/梅花大椅.jpg',
@@ -101,7 +101,7 @@ furniture_products = [
     {
         'id': 7,
         'name': '编号7 - 楸木供桌',
-        'price': 42800,
+        'price': 16800,
         'category': '供桌',
         'wood': '楸木',
         'image': '/static/images/楸木供桌.jpg',
@@ -110,7 +110,7 @@ furniture_products = [
     {
         'id': 8,
         'name': '编号8 - 红椿木花架',
-        'price': 6800,
+        'price': 1880,
         'category': '花架',
         'wood': '红椿木',
         'image': '/static/images/花架.jpg',
@@ -119,7 +119,7 @@ furniture_products = [
     {
         'id': 9,
         'name': '编号9 - 梅花小椅（无大理石）',
-        'price': 78800,
+        'price': 6800,
         'category': '龙椅',
         'wood': '红椿木',
         'image': '/static/images/梅花小椅无大理石.jpg',
@@ -128,7 +128,7 @@ furniture_products = [
     {
         'id': 10,
         'name': '编号10 - 梅花小椅（有大理石）',
-        'price': 128800,
+        'price': 8880,
         'category': '龙椅',
         'wood': '红椿木',
         'image': '/static/images/梅花小椅有大理石.jpg',
