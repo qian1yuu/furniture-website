@@ -330,7 +330,7 @@ function getMapUrl(type) {
         return 'https://uri.amap.com/search?keyword=' + mapKeyword;
     }
     if (type === 'tencent') {
-        return 'https://apis.map.qq.com/uri/v1/search?keyword=' + mapKeyword + '&referer=yu_cheng_furniture';
+        return 'https://apis.map.qq.com/uri/v1/search?keyword=' + mapKeyword + '&boundary=region(%E5%A4%A7%E7%90%86%E5%B8%82)&referer=yu_cheng_furniture';
     }
     if (type === 'baidu') {
         return 'https://map.baidu.com/?querytype=s&wd=' + mapKeyword + '&region=%E4%BA%91%E5%8D%97%E5%A4%A7%E7%90%86%E5%B8%82';
