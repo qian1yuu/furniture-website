@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 })();
 
-var mapKeyword = '%E4%BA%91%E5%8D%97%E5%A4%A7%E7%90%86%E5%B8%82%E6%B9%BE%E6%A1%A5%E9%95%87%E6%A6%86%E5%9F%8E%E5%AE%B6%E5%85%B7';
+var mapKeyword = '%E6%A6%86%E5%9F%8E%E5%AE%B6%E5%85%B7';
 
 function getMapUrl(type) {
     if (type === 'amap') {
